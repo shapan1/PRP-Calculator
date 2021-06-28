@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> <html>
+<head>
+<h1 text-align:'center'>PRP Calculator</h1>
+<style>
+    h1, h2 {
+        text-align: center;
+    }
+    .div1 {
+        text-align: center;
+    }
+
+    .div2 {
+        text-align: center;
+    }
+    #Step1 {
+        margin: auto;
+    }
+
+    #button2{
+        margin: auto;
+    }
+
+    #button1 {
+        margin: auto;
+    }
+    #Step2 {
+        margin: auto;
+    }
+
+</style>
+</head>
+
+<body>
+    <div class="div1">
+        <h2>Step 1</h2>
+        <table border='1' id='Step1'>
+            <thead>
+                <td>S no.</td>
+                <td>Baseline platelet count</td>
+                <td>Volume of Blood drawn</td>
+                <td>Final Platelet count in PRP</td>
+                <td>Volume of PRP produced</td>
+                <td>Efficiency</td>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td><input type="number" id="BPC1"></td>
+                <td>10 ml</td>
+                <td><input type="number" id="FPCIP1"></td>
+                <td>3 ml</td>
+                <td><input type="text" id="effi1"/></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><input type="number" id="BPC2"></td>
+                <td>10 ml</td>
+                <td><input type="number" id="FPCIP2"></td>
+                <td>3 ml</td>
+                <td><input type="text" id="effi2"/></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><input type="number" id="BPC3"></td>
+                <td>10 ml</td>
+                <td><input type="number" id="FPCIP3"></td>
+                <td>3 ml</td>
+                <td><input type="text" id="effi3"/></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><input type="number" id="BPC4"></td>
+                <td>10 ml</td>
+                <td><input type="number" id="FPCIP4"></td>
+                <td>3 ml</td>
+                <td><input type="text" id="effi4"/></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td><input type="number" id="BPC5"></td>
+                <td>10 ml</td>
+                <td><input type="number" id="FPCIP5"></td>
+                <td>3 ml</td>
+                <td><input type="text" id="effi5"/></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td><input type="number" id="BPC6"></td>
+                <td>10 ml</td>
+                <td><input type="number" id="FPCIP6"></td>
+                <td>3 ml</td>
+                <td><input type="text" id="effi6"/></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td><input type="number" id="BPC7"></td>
+                <td>10 ml</td>
+                <td><input type="number" id="FPCIP7"></td>
+                <td>3 ml</td>
+                <td><input type="text" id="effi7"/></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td><input type="number" id="BPC8"></td>
+                <td>10 ml</td>
+                <td><input type="number" id="FPCIP8"></td>
+                <td>3 ml</td>
+                <td><input type="text" id="effi8"/></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td><input type="number" id="BPC9"></td>
+                <td>10 ml</td>
+                <td><input type="number" id="FPCIP9"></td>
+                <td>3 ml</td>
+                <td><input type="text" id="effi9"/></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td><input type="number" id="BPC10"></td>
+                <td>10 ml</td>
+                <td><input type="number" id="FPCIP10"></td>
+                <td>3 ml</td>
+                <td><input type="text" id="effi10"/></td>
+            </tr>
+            <tr>
+                <td>Mean Efficiency</td>
+                <td><input type="text" id ="MeanEfficiency" /></td>
+            </tr>
+            </tbody>
+        </table>
+        <button id="button1" onclick='calcMean();return false;'>
+            Get Mean</button>
+    </div>
+
+    <div class="div2">
+        <h2>Step 2</h2>
+        <table id="Step2" border='1' id='Step 2'>
+            <thead>
+                <td>Calculation on the volume of blood that needs to be drawn</td>
+            </thead>
+            <tr>
+                <td>Baseline platelet count of Patient</td>
+                <td>Volume of PRP needed</td>
+                <td>Concentration of platelets needed in PRP</td>
+                <td>Mean efficiency</td>
+            </tr>
+            <tr>
+                <td><input type="number" id="BPCStep2" /></td>
+                <td><input type="number" id="VPRPStep2" /></td>
+                <td><input type="number" id="CPNStep2" /></td>
+                <td><input type="number" id="MEFromStep1" /></td>
+            </tr>
+            <tr>
+                <td>Please draw</td>
+                <td><input type="text" id="result" /></td>
+                <td>ml of blood.</td>
+            </tr>
+        </table>
+        <button id="button2" onclick='bloodDrawn();return false;'>
+            Get Amount of Blood Drawn</button>
+    </div>
+
+<script type="text/javascript">
+    //Step 1
+    function calcMean()
+    {
+        let ef1 = ( document.getElementById("FPCIP1").value * 3 ) / ( document.getElementById("BPC1").value * 10);
+        document.getElementById("effi1").value = ef1;
+        console.log(ef1);
+    
+        let ef2 = ( document.getElementById("FPCIP2").value * 3 ) / ( document.getElementById("BPC2").value * 10);
+        document.getElementById("effi2").value = ef2;
+        console.log(ef2);
+    
+        let ef3 = ( document.getElementById("FPCIP3").value * 3 ) / ( document.getElementById("BPC3").value * 10);
+        document.getElementById("effi3").value = ef3;
+        console.log(ef3);
+    
+        let ef4 = ( document.getElementById("FPCIP4").value * 3 ) / ( document.getElementById("BPC4").value * 10);
+        document.getElementById("effi4").value = ef4;
+        console.log(ef4);
+        
+        let ef5 = ( document.getElementById("FPCIP5").value * 3 ) / ( document.getElementById("BPC5").value * 10);
+        document.getElementById("effi5").value = ef5;
+        console.log(ef5);
+
+        let ef6 = ( document.getElementById("FPCIP6").value * 3 ) / ( document.getElementById("BPC6").value * 10);
+        document.getElementById("effi6").value = ef6;
+        console.log(ef6);
+
+        let ef7 = ( document.getElementById("FPCIP7").value * 3 ) / ( document.getElementById("BPC7").value * 10);
+        document.getElementById("effi7").value = ef7;
+        console.log(ef7);
+
+        let ef8 = ( document.getElementById("FPCIP8").value * 3 ) / ( document.getElementById("BPC8").value * 10);
+        document.getElementById("effi8").value = ef8;
+        console.log(ef8);
+
+        let ef9 = ( document.getElementById("FPCIP9").value * 3 ) / ( document.getElementById("BPC9").value * 10);
+        document.getElementById("effi9").value = ef9;
+        console.log(ef9);
+
+        let ef10 = ( document.getElementById("FPCIP10").value * 3 ) / ( document.getElementById("BPC10").value * 10);
+        document.getElementById("effi10").value = ef10;
+        console.log(ef10);
+
+        let MeanEfficiency = 0.1 * (ef1 + ef2 + ef3 + ef4 + ef5 + ef6 + ef7 + ef8 + ef9 + ef10);
+        document.getElementById("MeanEfficiency").value = MeanEfficiency;
+        document.getElementById("MEFromStep1").value = MeanEfficiency;
+        console.log(MeanEfficiency);
+    }
+    //Step 2
+    function bloodDrawn() 
+    {
+        let bd = ( document.getElementById("CPNStep2").value * document.getElementById("VPRPStep2").value ) / ( document.getElementById("BPCStep2").value * document.getElementById("MEFromStep1").value );
+        document.getElementById("result").value = bd;
+        console.log(bd);
+    }
+    </script>
+</body>
+</html>
